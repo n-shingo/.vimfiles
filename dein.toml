@@ -1,0 +1,90 @@
+# プラグイン管理
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# 補完
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+hook_add = '''
+    let g:neocomplete#enable_at_startup = 1
+    inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+'''
+
+# コードのお手軽実行
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+# 日本語ヘルプ
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+# tomlファイルのハイライト
+[[plugins]]
+repo = 'cespare/vim-toml'
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['Shougo/context_filetype.vim']
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+hook_add = '''
+    if !exists('g:context_filetype#filetypes')
+        let g:context_filetype#filetypes = {}
+    endif
+    "dein.toml編集用
+     let g:context_filetype#filetypes['toml'] = [
+    \   {'filetype':'vim', 'start':'^\s*hook_\(add\|source\|post_source\)\s*=\s*'.'""'.'"', 'end':'""'.'"'},
+    \   {'filetype':'vim', 'start':'^\s*hook_\(add\|source\|post_source\)\s*=\s*'."''"."'", 'end':"''"."'"},
+    \ ]
+'''
+        
+#下部の装飾
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    set laststatus=2
+    let g:lightline = {
+    \     'colorscheme' : 'jellybeans',
+    \     'active':{
+    \       'left':[['mode', 'paste'],
+    \               ['fugitive', 'readonly', 'filename', 'modified'],
+    \               ['ctrlpmark'] ],
+    \       'right':[['syntastic', 'lineinfo'], ['percent'],
+    \                ['fileformat', 'fileencoding', 'filetype']]
+    \     }
+    \}
+'''
+
+# カラースキーム
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+[[plugins]]
+repo = 'croaker/mustang-vim'
+[[plugins]]
+repo = 'jeffreyiacono/vim-colors-wombat'
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+[[plugins]]
+repo = 'vim-scripts/Lucius'
+[[plugins]]
+repo = 'vim-scripts/Zenburn'
+[[plugins]]
+repo = 'mrkn/mrkn256.vim'
+[[plugins]]
+repo = 'jpo/vim-railscasts-theme'
+[[plugins]]
+repo = 'therubymug/vim-pyte'
+[[plugins]]
+repo = 'tomasr/molokai'
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+hook_add = '''
+    set background=dark
+'''
+
+# カラースキームを Unite で見る
+# :Unite -auto-preview colorscheme
+[[plugins]]
+repo = 'Shougo/unite.vim'
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+
